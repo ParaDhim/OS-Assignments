@@ -1,0 +1,143 @@
+section .data
+	 text1 db "What is your name?"
+	 text2 db "hello,"
+	 text db "Its not an integer", 10
+	 len equ $-text
+	 
+section .bss
+	name resb 16
+	ascii resb 16
+	intMem resb 100
+	intAddr resb 8
+	
+section .text
+	global _start
+	
+_start:
+	call _printText1
+	call _getName
+	call _printText2
+	call _printName
+	call _getText
+	call _toInteger
+	call _appendEOL
+	
+	mov rax, 60
+	mov rdi, 0
+	syscall
+	
+_getText:
+    mov rax, 1
+	mov rdi, 1
+	mov rsi, ascii
+	mov rdx, 16
+	syscall
+	ret
+	
+_toInteger:
+    mov rbx, 10
+    xor rax, rax
+    mov rcx, ascii
+    movzx rdx, byte[rcx]
+    inc rcx
+    
+    cmp rdx, '0'
+    jb _invalid
+    
+    cmp rdx, '9'
+    ja _invalid
+    
+    sub rdx, '0'
+    mul rbx
+    add rax, rdx
+    jmp _toInteger
+    ret
+
+_invalid:
+    mov rax, 1
+	mov rdi, 1
+	mov rsi, text
+	mov rdx, len
+	syscall
+	ret
+	
+_appendEOL:
+    mov rcx, intMem
+    mov rbx, 10 ;EOL
+    mov [rcx], rbx
+    inc rcx
+    mov [intAddr], rcx
+    
+_loopDigit:
+    xor rdx, rdx
+    mov rbx, 10
+    div rbx
+    push rax
+    add rdx, '0'
+    mov rcx, [intAddr]
+    mov [rcx], dl
+    inc rcx
+    mov [intAddr], rcx
+    pop rax
+    cmp rax, 0
+    jne _loopDigit
+    
+_printDigit:
+    mov rcx, [intAddr]
+    
+    mov rax, 1
+    mov rdi, 1
+    mov rsi, rcx
+    mov rdx, 1
+    syscallmov rcx, [intAddr]
+    
+    mov rax, 1
+    mov rdi, 1
+    mov rsi, rcx
+    mov rdx, 1
+    syscallmov rcx, [intAddr]
+    
+    mov rax, 1
+    mov rdi, 1
+    mov rsi, rcx
+    mov rdx, 1
+    syscall
+    mov rcx, [intAddr]
+    dec rcx
+    mov[intAddr], rcx
+    cmp rcx, intMem
+    jge _printDigit
+    
+    ret
+	
+_printText1:
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, text1
+	mov rdx, 19
+	syscall
+	ret
+	
+_printText2:
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, text2
+	mov rdx, 7
+	syscall
+	ret
+
+_printName:
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, name
+	mov rdx, 16
+	syscall
+	ret
+	
+_getName:
+	mov rax, 0
+	mov rdi, 0
+	mov rsi, name
+	mov rdx, 16
+	syscall
+	ret

@@ -1,0 +1,187 @@
+section .data
+	 text1 db "What is your name?\n"
+	 text2 db "hello,"
+	 text db "Its not an integer", 10
+	 len equ $-text
+	 
+section .bss
+	name resb 16
+	ascii resb 16
+	intMem resb 100
+	intAddr resb 8
+	
+section .text
+	global _start
+	
+_start:
+; 	call _printText1
+; 	call _getName
+; 	call _printText2
+; 	call _printName
+	call _getText
+; 	call _egprint
+; 	call _toInteger
+    ; call _convert
+    call _toInt
+; 	call _appendEOL
+	call _printDigit
+	
+	mov rax, 60
+	mov rdi, 0
+	syscall
+	
+_getText:
+    mov rax, 0
+	mov rdi, 0
+	mov rsi, ascii
+	mov rdx, 16
+	syscall
+	ret
+
+_egprint:
+    mov rax, 1
+	mov rdi, 1
+	mov rsi, ascii
+	mov rdx, 16
+	syscall
+	ret
+    
+_toInt;
+    mov rax, 0
+    mov rdi, ascii
+    jmp _toInteger
+    
+_toInteger:
+    movzx rsi, byte[rdi]
+    test rsi,rsi
+    je _done
+    
+    
+    cmp rsi, 48
+    jl _invalid
+    
+    cmp rsi, 57
+    jg _invalid
+    
+    sub rsi, 48
+    imul rax, 10
+    add rax, rsi
+    inc rdi
+    jmp _toInteger
+    
+_done:
+    mov rax, 1
+	mov rdi, 1
+	mov rsi, ascii
+	mov rdx, 16
+	syscall
+    ret
+
+; _toInteger:
+;     mov rcx,ascii
+;     xor rbx,rbx
+; .next_digit:
+;     movzx rax,byte[rcx]
+;     inc rcx
+;     sub al,'0'    ; convert from ASCII to number
+;     imul rbx,10
+;     add rbx,rax   ; ebx = ebx*10 + eax
+;     loop .next_digit  ; while (--ecx)
+;     mov rax,rbx
+;     ret
+
+; _stringToInt:
+; _intToString:
+
+
+
+_invalid:
+    mov rax, 1
+	mov rdi, 1
+	mov rsi, text
+	mov rdx, len
+	syscall
+	ret
+	
+; _appendEOL:
+;     mov rcx, intMem
+;     mov rbx, 10 ;EOL
+;     mov [rcx], rbx
+;     inc rcx
+;     mov [intAddr], rcx
+    
+; _loopDigit:
+;     xor rdx, rdx
+;     mov rbx, 10
+;     div rbx
+;     push rax
+;     add rdx, '0'
+;     mov rcx, [intAddr]
+;     mov [rcx], dl
+;     inc rcx
+;     mov [intAddr], rcx
+;     pop rax
+;     cmp rax, 0
+;     jne _loopDigit
+    
+_printDigit:
+    mov rcx, [intAddr]
+    
+    mov rax, 1
+    mov rdi, 1
+    mov rsi, rcx
+    mov rdx, 1
+    syscall
+    mov rcx, [intAddr]
+    
+    mov rax, 1
+    mov rdi, 1
+    mov rsi, rcx
+    mov rdx, 1
+    syscall
+    mov rcx, [intAddr]
+    
+    mov rax, 1
+    mov rdi, 1
+    mov rsi, rcx
+    mov rdx, 1
+    syscall
+    mov rcx, [intAddr]
+    dec rcx
+    mov[intAddr], rcx
+    cmp rcx, intMem
+    jge _printDigit
+    
+    ret
+	
+_printText1:
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, text1
+	mov rdx, 18
+	syscall
+	ret
+	
+_printText2:
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, text2
+	mov rdx, 6
+	syscall
+	ret
+
+_printName:
+	mov rax, 1
+	mov rdi, 1
+	mov rsi, name
+	mov rdx, 16
+	syscall
+	ret
+	
+_getName:
+	mov rax, 0
+	mov rdi, 0
+	mov rsi, name
+	mov rdx, 16
+	syscall
+	ret

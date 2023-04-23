@@ -1,0 +1,25 @@
+segment .data
+ integer1 dd 15 ; first int
+ integer2 dd 6 ; second int
+segment .bss
+ result resd 2 ; result
+segment .text
+ global _start
+ 
+_start:
+ enter 0,0
+
+ mov rax, [integer1] ; eax = int1
+ ;add rax, [integer2] ; eax = int1 + int2
+ mov [result], rax ; result = int1 + int2
+
+ mov rax, 0
+ 
+mov rax, 1
+mov rdi, 1
+mov rsi, result
+mov rdx, 1
+syscall
+ syscall
+ leave
+ ret
