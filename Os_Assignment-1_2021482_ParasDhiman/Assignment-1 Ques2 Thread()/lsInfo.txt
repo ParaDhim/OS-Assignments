@@ -1,0 +1,27 @@
+(1)                         User Commands                        LS(1)
+NAME         top
+       ls - list directory contents
+SYNOPSIS         top
+       ls [OPTION]... [FILE]...
+DESCRIPTION         top
+       List information about the FILEs (the current directory by
+       default).  Sort entries alphabetically if none of -cftuvSUX nor
+       --sort is specified.
+
+       Mandatory arguments to long options are mandatory for short
+       options too.
+
+        -a, --all
+              do not ignore entries starting with .
+        -d, --directory
+              list directories themselves, not their contents
+
+       --help display this help and exit
+
+   Exit status:
+       0      if OK,
+
+       1      if minor problems (e.g., cannot access subdirectory),
+
+       2      if serious trouble (e.g., cannot access command-line
+              argument).

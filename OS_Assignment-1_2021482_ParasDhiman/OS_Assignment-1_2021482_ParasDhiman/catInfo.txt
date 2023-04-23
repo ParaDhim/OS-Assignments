@@ -1,0 +1,23 @@
+NAME         top
+       cat - concatenate files and print on the standard output
+SYNOPSIS         top
+       cat [OPTION]... [FILE]...
+DESCRIPTION         top
+       Concatenate FILE(s) to standard output.
+
+       With no FILE, or when FILE is -, read standard input.
+
+       -E, --show-ends
+              display $ at end of each line
+
+       -n, --number
+              number all output lines
+
+       --help display this help and exit
+
+EXAMPLES         top
+       cat f - g
+              Output f's contents, then standard input, then g's
+              contents.
+
+       cat    Copy standard input to standard output.

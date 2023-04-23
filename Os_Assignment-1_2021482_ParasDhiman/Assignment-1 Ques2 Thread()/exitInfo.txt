@@ -1,0 +1,3 @@
+T(3)                 Linux Programmer's Manual                EXIT(3)
+NAME         top
+       exit - cause normal process termination

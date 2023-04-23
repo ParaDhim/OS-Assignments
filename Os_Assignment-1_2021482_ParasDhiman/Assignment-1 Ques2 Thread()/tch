@@ -1,0 +1,7 @@
+struct timespec start, finish, delta;
+clock_gettime(CLOCK_REALTIME, &start);
+
+
+clock_gettime(CLOCK_REALTIME, &finish);
+printf("%lld %ld\n",start.tv_sec,start.tv_nsec);
+printf("%lld %ld\n",finish.tv_sec,finish.tv_nsec);

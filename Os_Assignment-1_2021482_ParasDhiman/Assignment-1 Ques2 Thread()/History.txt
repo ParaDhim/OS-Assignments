@@ -1,0 +1,142 @@
+history
+history
+history
+history
+ls
+-v
+history
+exit
+history
+exit
+ls
+-v
+history
+exit
+pwd
+exit --help
+ls
+--help
+exit
+ls
+--help
+exit
+--help
+--help
+--help
+ls
+--help
+ls
+-a
+exit
+ls
+--help
+ls
+-a
+exit
+ls -a
+-a
+ls -d
+-d
+ls
+--help
+cat
+--help
+exit
+--help
+--help
+--help
+--help
+cat
+-n History.txt
+cat -E
+-E History.txt
+cat
+--help
+date
+--help
+date
+-u
+date
+-R
+mkdir --help
+--help
+exit
+--help
+--help
+--help
+--help
+@@--help
+--help
+--help
+--help
+--help
+mkdir
+-p paras
+ls
+-p
+ls
+-a
+mkdir -v
+-v
+mkdir
+--help
+rm
+--help
+exit
+rm
+--help
+exit
+--help
+--help
+--help
+--help
+-i paras
+rm
+-i paras
+ls
+-p
+ls
+-a
+exit
+ls
+-a
+rm
+-i paras
+rm
+--help
+cd -P
+exit
+cd -P parasji
+cd -P /home/paras/ques/assmt2/parasji
+cd -L
+cd
+exit
+cd -P paras
+cd -P parasji
+pwd
+cd --help
+exit
+cd --help
+cd --help
+exit
+pwd --help
+echo --help
+exit
+pwd --help
+exit
+echo --help
+exit --help
+echo -n History.txt
+echo -n
+History.txt
+echo -n
+paras is the best
+echo -E
+paras/is/the
+echo -E
+part1\npart2
+echo -n
+part1\npart2
+echo -n
+part1\tpart2
+exit

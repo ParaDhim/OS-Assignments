@@ -1,0 +1,16 @@
+er Commands                       PWD(1)
+NAME         top
+       pwd - print name of current/working directory
+SYNOPSIS         top
+       pwd [OPTION]...
+DESCRIPTION         top
+       Print the full filename of the current working directory.
+
+       -L, --logical
+              use PWD from environment, even if it contains symlinks
+
+       -P, --physical
+              avoid all symlinks
+
+        --help display this help and exit
+

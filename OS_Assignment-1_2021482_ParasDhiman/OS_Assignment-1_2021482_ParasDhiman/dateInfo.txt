@@ -1,0 +1,18 @@
+DATE(1)                       User Commands                      DATE(1)
+NAME         top
+       date - print or set the system date and time
+SYNOPSIS         top
+       date [OPTION]
+DESCRIPTION         top
+        -u
+              print or set Coordinated Universal Time (UTC)
+        -R
+              output date and time in RFC 5322 format.  Example: Mon, 14
+              Aug 2006 02:34:56 -0600
+       --help display this help and exit
+
+       Display the current time in the given FORMAT, or set the system
+       date.
+
+       Mandatory arguments to long options are mandatory for short
+       options too.

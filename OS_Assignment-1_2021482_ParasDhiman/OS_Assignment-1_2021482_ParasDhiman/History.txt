@@ -1,0 +1,67 @@
+
+cd
+cd ..
+ls
+ls -P
+ls
+ls
+ls
+echo "paras"
+echo
+exit
+echo "paras"
+echo
+pwd
+echo
+exit
+ls
+ls
+cd
+cd ..
+cd -p
+cd -P
+ls
+cwd
+pwd
+echo
+exit
+echo
+echo "paras"
+exit
+cd
+exit
+cd -P ..
+ls
+ls -P
+exit
+ls
+exit
+ls
+exit
+cd
+cd
+cd ..
+pwd
+pwd
+pwd
+pwd
+pwd
+ls
+exit
+ls
+exit
+ls
+exit
+ls
+ls
+l
+cd
+ls
+ls -P
+exit
+ls
+exi
+exit
+ls
+sds
+exit
